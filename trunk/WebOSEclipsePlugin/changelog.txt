@@ -1,0 +1,13 @@
+WEBOS ECLIPSE PLUGIN CHANGELOG
+=========================
+http://code.google.com/p/webos-eclipse-plugin/
+
+Changes in version 1.0.0 (03.11.2009)
+-------------------------------------
+General
+* Initial release
+
+New Features
+* Create new WebOS Project directory structure 
+
+

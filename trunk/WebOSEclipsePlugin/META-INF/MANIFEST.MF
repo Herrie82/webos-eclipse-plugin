@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: WebOS Eclipse Plugin
+Bundle-SymbolicName: com.pps.webos.WebOSEclipsePlugin;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.pps.webos.WebOSEclipsePlugin
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.workbench,
+ org.eclipse.jface
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-Vendor: www.palmpreschool.com
+Export-Package: com.pps.webos
+Bundle-ClassPath: .

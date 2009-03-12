@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui.editors"/>
+      <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.eclipse.ui.workbench.texteditor"/>
+   </requires>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="WebOS"
+            id="com.pps.webos">
+      </category>
+      <wizard
+            name="WebOS Project"
+            icon="icons/pluginicon.png"
+            category="com.pps.webos"
+            class="com.pps.webos.wizards.NewWebOSProjectWizard"
+            id="com.pps.webos.wizards.NewWebOSProjectWizard"
+            project="true"
+            finalPerspective="org.eclipse.ui.internal.ResourcePerspective">
+         <description>
+           	New wizard to create a WebOS project structure
+         </description>
+         <projectsetup
+         	   banner="icons/pluginicon.png"
+         	   encoding="ISO-8859-1"
+               pagetitle="WebOS New Project Wizard"
+               name="NewWebOSProjectWizardPage"
+               label="WebOS Project"
+               pagedescription="Create a WebOS project in the workspace or in an external location.">
+            <import
+                  dest=""
+                  importtype="1"
+                  src="archive/webossrc.zip">
+            </import>
+         </projectsetup>
+
+      </wizard>
+
+
+   </extension>
+
+</plugin>
