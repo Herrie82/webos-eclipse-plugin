@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.pps.webos.feature"
+      label="WebOS Feature"
+      version="1.0.0.qualifier"
+      provider-name="www.palmpreschool.com">
+
+   <description url="http://code.google.com/p/webos-eclipse-plugin/">
+      Plugin to assist with WebOS development in Eclipse
+   </description>
+
+   <copyright>
+      Copyright Knests, LLC 2009
+   </copyright>
+
+   <license url="http://www.gnu.org/licenses/gpl.txt">
+      see http://www.gnu.org/licenses/gpl.txt
+   </license>
+
+   <plugin
+         id="com.pps.webos.WebOSEclipsePlugin"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
