@@ -28,6 +28,7 @@ import java.util.Observer;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.beans.PojoObservables;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -48,6 +49,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
 
 import com.pps.webos.WebOSEclipsePlugin;
@@ -88,6 +90,9 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 			return nameComposite;
 		}
 
+		/**
+		 * fireEvent
+		 */
 		protected void fireEvent() {
 			setChanged();
 			notifyObservers();
@@ -120,59 +125,66 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 	private final class AppInfoGroup extends Observable implements Observer, IDialogFieldListener  {
 
 		private AppInfo appInfo = null;
-		
+
 		protected final StringDialogField fTitle;
 		protected final StringDialogField fType;
 		protected final StringDialogField fMain;
-		protected final StringDialogField fIcon;
 		protected final StringDialogField fId;
 		protected final StringDialogField fVersion;
-		protected final StringDialogField fVendorId;
-		protected final StringDialogField fRemoveable;
+		protected final StringDialogField fNoWindow;
+		protected final StringDialogField fIcon;
+		protected final StringDialogField fMiniIcon;
+		protected final StringDialogField fCategory;
 		
 		public AppInfoGroup() {
 			
 			appInfo = new AppInfo();
 			
-			// text field for project name
+			// fTitle
 			fTitle = new StringDialogField();
-			fTitle.setLabelText(AppInfoEnum.TITLE.getDisplayText()); 
+			fTitle.setLabelText(AppInfoEnum.TITLE.getDisplayText());
 			fTitle.setDialogFieldListener(this);
 
-			// text field for project name
+			// fType TODO - make uneditable
 			fType = new StringDialogField();
 			fType.setLabelText(AppInfoEnum.TYPE.getDisplayText()); 
 			fType.setDialogFieldListener(this);
 			
-			// text field for project name
+			// fMain TODO - make uneditable
 			fMain = new StringDialogField();
 			fMain.setLabelText(AppInfoEnum.MAIN.getDisplayText()); 
 			fMain.setDialogFieldListener(this);
-		
-			// text field for project name
-			fIcon = new StringDialogField();
-			fIcon.setLabelText(AppInfoEnum.ICON.getDisplayText()); 
-			fIcon.setDialogFieldListener(this);
-			
-			// text field for project name
+
+			// fId
 			fId = new StringDialogField();
 			fId.setLabelText(AppInfoEnum.ID.getDisplayText()); 
 			fId.setDialogFieldListener(this);
 			
-			// text field for project name
+			// fVersion
 			fVersion = new StringDialogField();
 			fVersion.setLabelText(AppInfoEnum.VERSION.getDisplayText()); 
 			fVersion.setDialogFieldListener(this);
 			
-			// text field for project name
-			fVendorId = new StringDialogField();
-			fVendorId.setLabelText(AppInfoEnum.VENDORID.getDisplayText()); 
-			fVendorId.setDialogFieldListener(this);
+			// fNoWindow
+			fNoWindow = new StringDialogField();
+			fNoWindow.setLabelText(AppInfoEnum.NOWINDOW.getDisplayText()); 
+			fNoWindow.setDialogFieldListener(this);			
 			
-			// text field for project name
-			fRemoveable = new StringDialogField();
-			fRemoveable.setLabelText(AppInfoEnum.REMOVABLE.getDisplayText()); 
-			fRemoveable.setDialogFieldListener(this);			
+			// fIcon - valid file path
+			fIcon = new StringDialogField();
+			fIcon.setLabelText(AppInfoEnum.ICON.getDisplayText()); 
+			fIcon.setDialogFieldListener(this);
+			
+			// fMiniIcon
+			fMiniIcon = new StringDialogField();
+			fMiniIcon.setLabelText(AppInfoEnum.MINIICON.getDisplayText()); 
+			fMiniIcon.setDialogFieldListener(this);
+
+			// fCategory
+			fCategory = new StringDialogField();
+			fCategory.setLabelText(AppInfoEnum.CATEGORY.getDisplayText()); 
+			fCategory.setDialogFieldListener(this);
+	
 			
 		}
 		
@@ -188,31 +200,48 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 			layout.horizontalSpacing = 3;
 			layout.verticalSpacing = 6;
 			group.setLayout(layout);
-						
-			fTitle.doFillIntoGrid(group, numColumns);
-			LayoutUtil.setHorizontalGrabbing(fTitle.getTextControl(null));
+					
 			
+//			Text text = new Text(container, SWT.BORDER | SWT.SINGLE);
+			
+			// fTitle
+			fTitle.doFillIntoGrid(group, numColumns);
+			fTitle.getTextControl(group).setText("HEY");
+			fTitle.getTextControl(group).setToolTipText("TITLE SHOULD BE FILLED");
+			//LayoutUtil.setHorizontalGrabbing(fTitle.getTextControl(null));
+			
+			// fType
 			fType.doFillIntoGrid(group, numColumns);
 			LayoutUtil.setHorizontalGrabbing(fType.getTextControl(null));
-			
+
+			// fMain
 			fMain.doFillIntoGrid(group, numColumns);
 			LayoutUtil.setHorizontalGrabbing(fMain.getTextControl(null));
-	
-			fIcon.doFillIntoGrid(group, numColumns);
-			LayoutUtil.setHorizontalGrabbing(fIcon.getTextControl(null));
-			
+
+			// fId
 			fId.doFillIntoGrid(group, numColumns);
 			LayoutUtil.setHorizontalGrabbing(fId.getTextControl(null));
 
+			// fVersion
 			fVersion.doFillIntoGrid(group, numColumns);
 			LayoutUtil.setHorizontalGrabbing(fVersion.getTextControl(null));
-			
-			fVendorId.doFillIntoGrid(group, numColumns);
-			LayoutUtil.setHorizontalGrabbing(fVendorId.getTextControl(null));
-			
-			fRemoveable.doFillIntoGrid(group, numColumns);
-			LayoutUtil.setHorizontalGrabbing(fRemoveable.getTextControl(null));
 
+			// fNoWindow
+			fNoWindow.doFillIntoGrid(group, numColumns);
+			LayoutUtil.setHorizontalGrabbing(fNoWindow.getTextControl(null));		
+			
+			//fIcon
+			fIcon.doFillIntoGrid(group, numColumns);
+			LayoutUtil.setHorizontalGrabbing(fIcon.getTextControl(null));
+
+			//fMiniIcon
+			fMiniIcon.doFillIntoGrid(group, numColumns);
+			LayoutUtil.setHorizontalGrabbing(fMiniIcon.getTextControl(null));			
+
+			//fCategory
+			fCategory.doFillIntoGrid(group, numColumns);
+			LayoutUtil.setHorizontalGrabbing(fCategory.getTextControl(null));
+			
 			LayoutUtil.setHorizontalGrabbing(group);
 			
 			// Bind text fields to the model
@@ -240,13 +269,6 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
 
-			// fIcon;
-			bindingContext.bindValue(
-					SWTObservables.observeText(fIcon.getTextControl(group), SWT.Modify), 
-					PojoObservables.observeValue(appInfo, AppInfoEnum.ICON.getFieldName()),
-					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
-					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
-
 			// fId;
 			bindingContext.bindValue(
 					SWTObservables.observeText(fId.getTextControl(group), SWT.Modify), 
@@ -261,31 +283,64 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
 
-			// fVendorId;
+			// noWindow
 			bindingContext.bindValue(
-					SWTObservables.observeText(fVendorId.getTextControl(group), SWT.Modify), 
-					PojoObservables.observeValue(appInfo, AppInfoEnum.VENDORID.getFieldName()),
+					SWTObservables.observeText(fNoWindow.getTextControl(group), SWT.Modify), 
+					PojoObservables.observeValue(appInfo, AppInfoEnum.NOWINDOW.getFieldName()),
+					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
+					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
+			
+			// fIcon;
+			bindingContext.bindValue(
+					SWTObservables.observeText(fIcon.getTextControl(group), SWT.Modify), 
+					PojoObservables.observeValue(appInfo, AppInfoEnum.ICON.getFieldName()),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
 
-			// fRemoveable;			
+			// fMiniIcon;
 			bindingContext.bindValue(
-					SWTObservables.observeText(fRemoveable.getTextControl(group), SWT.Modify), 
-					PojoObservables.observeValue(appInfo, AppInfoEnum.REMOVABLE.getFieldName()),
+					SWTObservables.observeText(fMiniIcon.getTextControl(group), SWT.Modify), 
+					PojoObservables.observeValue(appInfo, AppInfoEnum.MINIICON.getFieldName()),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
+
+			// fcategory;			
+			bindingContext.bindValue(
+					SWTObservables.observeText(fCategory.getTextControl(group), SWT.Modify), 
+					PojoObservables.observeValue(appInfo, AppInfoEnum.CATEGORY.getFieldName()),
+					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
+					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
+			
+			// set defauts after bindings
+			fType.setText("web");
+			fType.getTextControl(group).setEditable(false);
+			
+			fMain.setText("index.html");
+			fMain.getTextControl(group).setEditable(false);
 			
 			return group;
 		}
 		
+		/**
+		 * fireEvent
+		 */
+		protected void fireEvent() {
+			setChanged();
+			notifyObservers();
+		}
+		
+		/* (non-Javadoc)
+		 * @see org.eclipse.jdt.internal.ui.wizards.dialogfields.IDialogFieldListener#dialogFieldChanged(org.eclipse.jdt.internal.ui.wizards.dialogfields.DialogField)
+		 */
 		public void dialogFieldChanged(DialogField field) {
-			// TODO Auto-generated method stub
-			
+			fireEvent();
 		}
 
+		/* (non-Javadoc)
+		 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+		 */
 		public void update(Observable arg0, Object arg1) {
-			// TODO Auto-generated method stub
-			
+			fireEvent();
 		}
 		
 		/**
@@ -296,12 +351,87 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 		}
 		
 	}
+
+	/**
+	 * Validate this page and show appropriate warnings and error NewWizardMessages.
+	 */
+	private final class Validator implements Observer {
+
+		public void update(Observable arg0, Object arg1) {
+
+			/** NameGroup **/
+			IWorkspace workspace= ResourcesPlugin.getWorkspace();
+			
+			String projectName = fNameGroup.getName();
+			
+			// validate length of name
+			if (projectName == null || projectName.length() == 0) {
+				setErrorMessage(null);
+				setMessage("Please enter project name"); 
+				setPageComplete(false);
+				return;				
+			}
+			
+			// check whether the project name is valid
+			final IStatus nameStatus= workspace.validateName(projectName, IResource.PROJECT);
+			if (!nameStatus.isOK()) {
+				setErrorMessage(nameStatus.getMessage());
+				setPageComplete(false);
+				return;
+			}		
+			
+			// check whether project already exists
+			final IProject handle = workspace.getRoot().getProject(projectName);
+			if (handle.exists()) {
+				setErrorMessage("Project already exists"); 
+				setPageComplete(false);
+				return;
+			}			
+			
+			/** AppInfoGroup **/
+//			fTitle; = required
+//			fType; = required 
+//			fMain; = required
+//			fId; = required
+//			fVersion; = required
+//			fNoWindow; = not required
+//			fIcon; = not required (FILE PATH: if present should validate as file location)
+//			fMiniIcon; = not required (FILE PATH: if present should validate as file location)
+//			fCategory; = not required				
+			
+//			if (appInfoGroup.fTitle() == null ||)
+//			
+//			
+//			appInfoGroup.fType
+//			appInfoGroup.fMain
+//			appInfoGroup.fId
+//			appInfoGroup.fVersion
+//			appInfoGroup.fNoWindow
+//			appInfoGroup.fIcon
+//			appInfoGroup.fMiniIcon
+//			appInfoGroup.fCategory
+			
+			
+			System.out.println("Validator");
+			
+			setPageComplete(true);
+			setErrorMessage(null);
+			setMessage(null);			
+			
+		}
+	
+		
+
+		
+	}
+	
+//	public static final IStatus validateText(String val, String ) {
+////		return null;
+//	}	
 	
 	
 	
 	/* Static class information */
-	//private Text fTextControl = null; 
-	
 	private IStatus fCurrStatus = null;
 	private boolean fPageVisible = false;
 
@@ -311,6 +441,7 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 	// groups
 	private final AppInfoGroup appInfoGroup;
 	private final NameGroup fNameGroup;
+	private final Validator fValidator;
 	
 	/**
 	 * 
@@ -332,9 +463,12 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 
 		// initialize all elements
 		fNameGroup.notifyObservers(appInfoGroup);
-		appInfoGroup.notifyObservers();
-	
-	
+		
+		// Validator
+		fValidator = new Validator();
+		fNameGroup.addObserver(fValidator);
+		appInfoGroup.addObserver(fValidator);
+		
 	}
 
 	/* (non-Javadoc)
@@ -355,6 +489,9 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 		Control appInfoControl = createAppInfoControl(composite);
 		appInfoControl.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
+	
+		
+		
 		setControl(composite);
 	}	
 	
@@ -403,60 +540,60 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 	
 
 	
-	/**
-	 * Method should validate input text in the page 
-	 * 
-	 * @param text
-	 */
-	private void dialogueChange() {
-
-		/* 'validation' for project name */
-		IWorkspace workspace= ResourcesPlugin.getWorkspace();
-		
-		IStatus status= workspace.validateName(fNameGroup.getName(), IResource.PROJECT);
-		if (status.isOK()) {
-			/* check to see if project already exists in workspace */
-			if (workspace.getRoot().getProject(fNameGroup.getName()).exists()) {
-				status = createStatus(IStatus.ERROR, WebOSMessages.NewWebOSProjectWizardPage1_error_alreadyexists);
-			}
-		}
-		updateStatus(status);
-
-	}
-	
-	/**
-	 * Updates the status line and the ok button depending on the status
-	 * 
-	 * @param status
-	 */
-	private void updateStatus(IStatus status) {
-		fCurrStatus= status;
-		setPageComplete(!status.matches(IStatus.ERROR));
-		if (fPageVisible) {
-			applyToStatusLine(this, status);
-		}
-	}
-	
-	/**
-	 * Applies the status to a dialog page
-	 * 
-	 * @param page
-	 * @param status
-	 */
-	private static void applyToStatusLine(DialogPage page, IStatus status) {
-		String errorMessage= null;
-		String warningMessage= null;
-		String statusMessage= status.getMessage();
-		if (statusMessage.length() > 0) {
-			if (status.matches(IStatus.ERROR)) {
-				errorMessage= statusMessage;
-			} else if (!status.isOK()) {
-				warningMessage= statusMessage;
-			}
-		}
-		page.setErrorMessage(errorMessage);
-		page.setMessage(warningMessage);
-	}
+//	/**
+//	 * Method should validate input text in the page 
+//	 * 
+//	 * @param text
+//	 */
+//	private void dialogueChange() {
+//
+//		/* 'validation' for project name */
+//		IWorkspace workspace= ResourcesPlugin.getWorkspace();
+//		
+//		IStatus status= workspace.validateName(fNameGroup.getName(), IResource.PROJECT);
+//		if (status.isOK()) {
+//			/* check to see if project already exists in workspace */
+//			if (workspace.getRoot().getProject(fNameGroup.getName()).exists()) {
+//				status = createStatus(IStatus.ERROR, WebOSMessages.NewWebOSProjectWizardPage1_error_alreadyexists);
+//			}
+//		}
+//		updateStatus(status);
+//
+//	}
+//	
+//	/**
+//	 * Updates the status line and the ok button depending on the status
+//	 * 
+//	 * @param status
+//	 */
+//	private void updateStatus(IStatus status) {
+//		fCurrStatus= status;
+//		setPageComplete(!status.matches(IStatus.ERROR));
+//		if (fPageVisible) {
+//			applyToStatusLine(this, status);
+//		}
+//	}
+//	
+//	/**
+//	 * Applies the status to a dialog page
+//	 * 
+//	 * @param page
+//	 * @param status
+//	 */
+//	private static void applyToStatusLine(DialogPage page, IStatus status) {
+//		String errorMessage= null;
+//		String warningMessage= null;
+//		String statusMessage= status.getMessage();
+//		if (statusMessage.length() > 0) {
+//			if (status.matches(IStatus.ERROR)) {
+//				errorMessage= statusMessage;
+//			} else if (!status.isOK()) {
+//				warningMessage= statusMessage;
+//			}
+//		}
+//		page.setErrorMessage(errorMessage);
+//		page.setMessage(warningMessage);
+//	}
 	
 	
 	

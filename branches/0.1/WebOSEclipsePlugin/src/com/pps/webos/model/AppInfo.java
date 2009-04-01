@@ -33,11 +33,13 @@ public class AppInfo {
 	private String title = null;
 	private String type = null;
 	private String main = null;
-	private String icon = null;
 	private String id = null;
 	private String version = null;
-	private String vendorid = null;
-	private String removeable = null;
+	private String noWindow = null;
+	private String icon = null;
+	private String minicon = null;
+	private String category = null;
+	
 	/**
 	 * @return the title
 	 */
@@ -111,29 +113,40 @@ public class AppInfo {
 		this.version = version;
 	}
 	/**
-	 * @return the removeable
+	 * @return the noWindow
 	 */
-	public String getRemoveable() {
-		return removeable;
+	public String getNoWindow() {
+		return noWindow;
 	}
 	/**
-	 * @param removeable the removeable to set
+	 * @param noWindow the noWindow to set
 	 */
-	public void setRemoveable(String removeable) {
-		this.removeable = removeable;
+	public void setNoWindow(String noWindow) {
+		this.noWindow = noWindow;
 	}
 	/**
-	 * @return the vendorid
+	 * @return the minicon
 	 */
-	public String getVendorid() {
-		return vendorid;
+	public String getMinicon() {
+		return minicon;
 	}
 	/**
-	 * @param vendorid the vendorid to set
+	 * @param minicon the minicon to set
 	 */
-	public void setVendorid(String vendorid) {
-		this.vendorid = vendorid;
+	public void setMinicon(String minicon) {
+		this.minicon = minicon;
 	}
-	
+	/**
+	 * @return the category
+	 */
+	public String getCategory() {
+		return category;
+	}
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 }

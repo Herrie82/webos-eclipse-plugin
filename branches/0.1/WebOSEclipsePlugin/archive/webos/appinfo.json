@@ -3,10 +3,10 @@ appinfo.json
    "title": "_title",
    "type": "_type",
    "main": "_main"
-   "icon": "_icon",
    "id": "_id",
    "version": "_version",
-   "vendorid": "_vendorId",
-   "removable": _removable
-
+   "noWindow": "_noWindow",
+   "icon": "_icon",
+   "minicon" : "_minicon",
+   "category" : "_category"
 }
