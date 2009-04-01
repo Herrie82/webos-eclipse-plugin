@@ -54,6 +54,8 @@ import org.osgi.framework.Bundle;
 
 import com.pps.webos.WebOSEclipsePlugin;
 import com.pps.webos.WebOSMessages;
+import com.pps.webos.model.AppInfo;
+import com.pps.webos.util.AppInfoHelper;
 
 /**
  * @author justinm
@@ -96,7 +98,15 @@ public class NewWebOSProjectWizard extends Wizard implements
 		}
 	}	
 	
-
+	// method should be run after the project creation is complete
+	// 
+	private void postProjectSetup (String projectName) {
+		
+		AppInfoHelper appInfoHelper = new AppInfoHelper();
+		appInfoHelper.replaceAppInfoAttributes(projectName, fPage.getAppInfo());
+	}
+	
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.wizard.Wizard#performFinish()
 	 */
@@ -114,11 +124,15 @@ public class NewWebOSProjectWizard extends Wizard implements
 			} catch  (InterruptedException e) {
 				return false;
 			}
+			
 			BasicNewProjectResourceWizard.updatePerspective(fConfigElement);
 			IResource res= runnable.getElementToOpen();
 			if (res != null) {
 				openResource(res);
 			}
+
+			// do post processing
+			postProjectSetup(fPage.getProjectName());	
 		}
 		return true;
 	}
