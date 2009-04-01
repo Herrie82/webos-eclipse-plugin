@@ -36,11 +36,12 @@ public enum AppInfoEnum {
 	TITLE ("title", "_title", "Title: "),
 	TYPE ("type", "_type", "Type: "),
 	MAIN ("main", "_main", "Main: "),
-	ICON ("icon", "_icon", "Icon: "),
 	ID ("id", "_id", "Id: "),
 	VERSION ("version", "_version", "Version: "),
-	VENDORID ("vendorid", "_vendorId", "Vendor Id: "),
-	REMOVABLE ("removeable", "_removable", "Removable: ");
+	NOWINDOW ("noWindow", "_noWindow", "No Window: "),
+	ICON ("icon", "_icon", "Icon: "),
+	MINIICON ("minicon", "_minicon", "MiniIcon: "),
+	CATEGORY ("category", "_category", "Category: ");
 	
 	private String fieldName = null;
 	private String replaceVal = null;

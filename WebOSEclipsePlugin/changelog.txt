@@ -4,12 +4,15 @@ http://code.google.com/p/webos-eclipse-plugin/
 
 Changes in version 1.0.1 (?)
 -------------------------------------
-* CHANGE: refactor NewWebOSProjectWizardPage1 group classes
-* ADD: AppInfoHelper to replace values in appinfo.json
+* CHANGE: refactor NewWebOSProjectWizardPage1, updated to groups/integrated validation
+* ADD: Dialogue to edit/enter in appinfo.json
+*  
+
 * 
 TODO:
-* validators
-* add the change bubbles
+* validation/verify fields should be text
+* change no window to true or false
+* drop down for version installed?
 
 
 
