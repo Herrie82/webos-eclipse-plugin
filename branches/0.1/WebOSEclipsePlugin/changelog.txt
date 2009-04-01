@@ -2,6 +2,17 @@ WEBOS ECLIPSE PLUGIN CHANGELOG
 =========================
 http://code.google.com/p/webos-eclipse-plugin/
 
+Changes in version 1.0.1 (?)
+-------------------------------------
+* CHANGE: refactor NewWebOSProjectWizardPage1 group classes
+* ADD: AppInfoHelper to replace values in appinfo.json
+* 
+TODO:
+* validators
+* add the change bubbles
+
+
+
 Changes in version 1.0.0 (03.11.2009)
 -------------------------------------
 General
