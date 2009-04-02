@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.pps.webos.feature_1.0.0.200904012114.jar" id="com.pps.webos.feature" version="1.0.0.200904012114">
+   <feature url="features/com.pps.webos.feature_1.0.0.200904021251.jar" id="com.pps.webos.feature" version="1.0.0.200904021251">
       <category name="WebOS"/>
    </feature>
    <category-def name="WebOS" label="WebOS"/>
