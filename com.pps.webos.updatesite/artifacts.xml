@@ -3,18 +3,18 @@
 <repository name='file:/Users/justinm/development/workspaces/webos/com.pps.webos.updatesite/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1236830284321'/>
+    <property name='p2.timestamp' value='1238638465118'/>
   </properties>
   <mappings size='3'>
     <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
     <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
     <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
   </mappings>
-  <artifacts size='6'>
-    <artifact classifier='osgi.bundle' id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200903112258'>
+  <artifacts size='8'>
+    <artifact classifier='osgi.bundle' id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200904012114'>
       <properties size='3'>
-        <property name='artifact.size' value='48241'/>
-        <property name='download.size' value='48241'/>
+        <property name='artifact.size' value='267386'/>
+        <property name='download.size' value='267386'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -22,6 +22,13 @@
       <properties size='3'>
         <property name='artifact.size' value='126045'/>
         <property name='download.size' value='126045'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200903112258'>
+      <properties size='3'>
+        <property name='artifact.size' value='48241'/>
+        <property name='download.size' value='48241'/>
         <property name='download.contentType' value='application/zip'/>
       </properties>
     </artifact>
@@ -37,17 +44,23 @@
         <property name='download.size' value='763'/>
       </properties>
     </artifact>
+    <artifact classifier='osgi.bundle' id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200903111354'>
+      <properties size='3'>
+        <property name='artifact.size' value='126160'/>
+        <property name='download.size' value='126160'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
     <artifact classifier='org.eclipse.update.feature' id='com.pps.webos.feature' version='1.0.0.200903112258'>
       <properties size='2'>
         <property name='artifact.size' value='767'/>
         <property name='download.size' value='767'/>
       </properties>
     </artifact>
-    <artifact classifier='osgi.bundle' id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200903111354'>
-      <properties size='3'>
-        <property name='artifact.size' value='126160'/>
-        <property name='download.size' value='126160'/>
-        <property name='download.contentType' value='application/zip'/>
+    <artifact classifier='org.eclipse.update.feature' id='com.pps.webos.feature' version='1.0.0.200904012114'>
+      <properties size='2'>
+        <property name='artifact.size' value='765'/>
+        <property name='download.size' value='765'/>
       </properties>
     </artifact>
   </artifacts>
