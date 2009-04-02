@@ -25,6 +25,7 @@ package com.pps.webos.wizards;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.UpdateValueStrategy;
 import org.eclipse.core.databinding.beans.PojoObservables;
@@ -426,48 +427,53 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 				return;
 			}			
 			
-			/** AppInfoGroup **/
-//			fTitle; = required
-//			fType; = required 
-//			fMain; = required
-//			fId; = required
-//			fVersion; = required
-//			fNoWindow; = not required
-//			fIcon; = not required (FILE PATH: if present should validate as file location)
-//			fMiniIcon; = not required (FILE PATH: if present should validate as file location)
-//			fCategory; = not required				
+			/************ AppInfoGroup ***********/
+			// fTitle; required
+			if (StringUtils.isBlank(appInfoGroup.fTitle.getText())) {
+				setErrorMessage("Title is required"); 
+				setPageComplete(false);
+				return;
+			}
 			
-//			if (appInfoGroup.fTitle() == null ||)
-//			
-//			
-//			appInfoGroup.fType
-//			appInfoGroup.fMain
-//			appInfoGroup.fId
-//			appInfoGroup.fVersion
-//			appInfoGroup.fNoWindow
-//			appInfoGroup.fIcon
-//			appInfoGroup.fMiniIcon
-//			appInfoGroup.fCategory
+			// fType; required
+			if (StringUtils.isBlank(appInfoGroup.fType.getText())) {
+				setErrorMessage("Type is required"); 
+				setPageComplete(false);
+				return;
+			}			
 			
+			// fMain; required
+			if (StringUtils.isBlank(appInfoGroup.fMain.getText())) {
+				setErrorMessage("Main is required"); 
+				setPageComplete(false);
+				return;
+			}					
 			
-			System.out.println("Validator");
+			// fId; required
+			if (StringUtils.isBlank(appInfoGroup.fId.getText())) {
+				setErrorMessage("ID is required"); 
+				setPageComplete(false);
+				return;
+			}				
+			
+			// fVersion; required
+			if (StringUtils.isBlank(appInfoGroup.fVersion.getText())) {
+				setErrorMessage("Version is required"); 
+				setPageComplete(false);
+				return;
+			}
+			
+			// fNoWindow; not required
+			// fIcon; not required
+			// fMiniIcon; not required
+			// fCategory; not required			
+			/************ AppInfoGroup ***********/
 			
 			setPageComplete(true);
 			setErrorMessage(null);
 			setMessage(null);			
-			
 		}
-	
-		
-
-		
 	}
-	
-//	public static final IStatus validateText(String val, String ) {
-////		return null;
-//	}	
-	
-	
 	
 	/* Static class information */
 	private IStatus fCurrStatus = null;
@@ -575,65 +581,6 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 	private static IStatus createStatus(int severity, String message) {
 		return new Status(severity, WebOSEclipsePlugin.getPluginId(), severity, message, null);
 	}	
-	
-
-	
-//	/**
-//	 * Method should validate input text in the page 
-//	 * 
-//	 * @param text
-//	 */
-//	private void dialogueChange() {
-//
-//		/* 'validation' for project name */
-//		IWorkspace workspace= ResourcesPlugin.getWorkspace();
-//		
-//		IStatus status= workspace.validateName(fNameGroup.getName(), IResource.PROJECT);
-//		if (status.isOK()) {
-//			/* check to see if project already exists in workspace */
-//			if (workspace.getRoot().getProject(fNameGroup.getName()).exists()) {
-//				status = createStatus(IStatus.ERROR, WebOSMessages.NewWebOSProjectWizardPage1_error_alreadyexists);
-//			}
-//		}
-//		updateStatus(status);
-//
-//	}
-//	
-//	/**
-//	 * Updates the status line and the ok button depending on the status
-//	 * 
-//	 * @param status
-//	 */
-//	private void updateStatus(IStatus status) {
-//		fCurrStatus= status;
-//		setPageComplete(!status.matches(IStatus.ERROR));
-//		if (fPageVisible) {
-//			applyToStatusLine(this, status);
-//		}
-//	}
-//	
-//	/**
-//	 * Applies the status to a dialog page
-//	 * 
-//	 * @param page
-//	 * @param status
-//	 */
-//	private static void applyToStatusLine(DialogPage page, IStatus status) {
-//		String errorMessage= null;
-//		String warningMessage= null;
-//		String statusMessage= status.getMessage();
-//		if (statusMessage.length() > 0) {
-//			if (status.matches(IStatus.ERROR)) {
-//				errorMessage= statusMessage;
-//			} else if (!status.isOK()) {
-//				warningMessage= statusMessage;
-//			}
-//		}
-//		page.setErrorMessage(errorMessage);
-//		page.setMessage(warningMessage);
-//	}
-	
-	
 	
 	/**
 	 * Creates the controls for the name field. 
