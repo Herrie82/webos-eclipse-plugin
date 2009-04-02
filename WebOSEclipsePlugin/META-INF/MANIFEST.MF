@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.core.resources,
  org.eclipse.core.databinding;bundle-version="1.1.1",
  org.eclipse.jface.databinding;bundle-version="1.2.1",
  org.eclipse.core.databinding.beans;bundle-version="1.1.1",
- org.apache.commons.logging;bundle-version="1.0.4"
+ org.apache.commons.logging;bundle-version="1.0.4",
+ org.apache.commons.lang;bundle-version="2.3.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Vendor: www.palmpreschool.com
