@@ -11,8 +11,9 @@ Changes in version 1.0.1 (?)
 * 
 TODO:
 * validation/verify fields should be text
-* change no window to true or false
-* drop down for version installed?
+
+* Does the eclipse plugin allow to set the javascript editor
+* Need to check to see if you can depend on WTP tools or make it optional for download...
 
 
 
