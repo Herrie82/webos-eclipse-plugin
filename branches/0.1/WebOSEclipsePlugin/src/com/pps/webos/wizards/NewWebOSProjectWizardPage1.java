@@ -126,6 +126,16 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 
 		private AppInfo appInfo = null;
 
+		
+		// fTitle;
+		// fType;
+		// fMain;
+		// fId;
+		// fVersion;
+		// fNoWindow;
+		// fIcon;
+		// fMiniIcon;
+		// fCategory;
 		protected final StringDialogField fTitle;
 		protected final StringDialogField fType;
 		protected final StringDialogField fMain;
@@ -201,9 +211,6 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 			layout.verticalSpacing = 6;
 			group.setLayout(layout);
 					
-			
-//			Text text = new Text(container, SWT.BORDER | SWT.SINGLE);
-			
 			// fTitle
 			fTitle.doFillIntoGrid(group, numColumns);
 			fTitle.getTextControl(group).setText("HEY");
@@ -311,12 +318,43 @@ public class NewWebOSProjectWizardPage1 extends WizardPage {
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE),
 					new UpdateValueStrategy(UpdateValueStrategy.POLICY_UPDATE));
 			
-			// set defauts after bindings
-			fType.setText("web");
-			fType.getTextControl(group).setEditable(false);
+			// DEFAULTS, tooltips, etc : Needed to be placed after the bindings
 			
-			fMain.setText("index.html");
-			fMain.getTextControl(group).setEditable(false);
+			// fTitle;
+			fTitle.setText(AppInfoEnum.TITLE.getDefaultValue());
+			fTitle.getTextControl(group).setToolTipText(AppInfoEnum.TITLE.getToolTip());
+			
+			// fType;
+			fType.setText(AppInfoEnum.TYPE.getDefaultValue());
+			fType.getTextControl(group).setEditable(false);
+			fType.getTextControl(group).setToolTipText(AppInfoEnum.TYPE.getToolTip());
+			
+			// fMain;
+			fMain.setText(AppInfoEnum.MAIN.getDefaultValue());
+			fMain.getTextControl(group).setToolTipText(AppInfoEnum.MAIN.getToolTip());
+			
+			// fId;
+			fId.setText(AppInfoEnum.ID.getDefaultValue());
+			fId.getTextControl(group).setToolTipText(AppInfoEnum.ID.getToolTip());
+			
+			// fVersion;
+			fVersion.setText(AppInfoEnum.VERSION.getDefaultValue());
+			fVersion.getTextControl(group).setToolTipText(AppInfoEnum.VERSION.getToolTip());
+			
+			// fNoWindow;
+			fNoWindow.setText(AppInfoEnum.NOWINDOW.getDefaultValue());
+			fNoWindow.getTextControl(group).setToolTipText(AppInfoEnum.NOWINDOW.getToolTip());
+			
+			// fIcon;
+			fIcon.setText(AppInfoEnum.ICON.getDefaultValue());
+			fIcon.getTextControl(group).setToolTipText(AppInfoEnum.ICON.getToolTip());
+			
+			// fMiniIcon;
+			fMiniIcon.setText(AppInfoEnum.ICON.getDefaultValue());
+			fMiniIcon.getTextControl(group).setToolTipText(AppInfoEnum.MINIICON.getToolTip());
+			
+			// fCategory;
+			fCategory.getTextControl(group).setToolTipText(AppInfoEnum.CATEGORY.getToolTip());
 			
 			return group;
 		}

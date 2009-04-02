@@ -27,25 +27,27 @@ package com.pps.webos.enums;
  * 	1) fieldname - name/attribute in the appinfo.json
  *  2) replaceVal - string value to be replaced in the appinfo.json ->  the values are different than default value of WebOS presentations
  *  3) displayText - the display text of the field/attribute
- * 
+ *  4) toolTip - that will be displayed in the UI
  * @author justinm
  *
  */
 public enum AppInfoEnum {
-
-	TITLE ("title", "_title", "Title: "),
-	TYPE ("type", "_type", "Type: "),
-	MAIN ("main", "_main", "Main: "),
-	ID ("id", "_id", "Id: "),
-	VERSION ("version", "_version", "Version: "),
-	NOWINDOW ("noWindow", "_noWindow", "No Window: "),
-	ICON ("icon", "_icon", "Icon: "),
-	MINIICON ("minicon", "_minicon", "MiniIcon: "),
-	CATEGORY ("category", "_category", "Category: ");
+	
+	TITLE ("title", "_title", "Title: ", "Application Name", "Name of application as it appears in Launcher and in app window"),
+	TYPE ("type", "_type", "Type: ", "web", "Conventional application"),
+	MAIN ("main", "_main", "Main: ", "index.html", "Application entry point; defaults to index.html"),
+	ID ("id", "_id", "Id: ", "com.yourdomain.app", "Must be unique for each application"),
+	VERSION ("version", "_version", "WebOS Version: ", "1.0", "Application version number"),
+	NOWINDOW ("noWindow", "_noWindow", "No Window: ", "false", "Headless application; defaults to false"),
+	ICON ("icon", "_icon", "Icon: ", "icon.png", "Application's launcher icon; defaults icon.png"),
+	MINIICON ("minicon", "_minicon", "MiniIcon: ", "miniicon.png", "Notification icon; defaults to miniicon.png"),
+	CATEGORY ("category", "_category", "Category: ", "", "Default category for application");
 	
 	private String fieldName = null;
 	private String replaceVal = null;
 	private String displayText = null;
+	private String defaultValue = null;
+	private String toolTip = null;
 
 	public static final String WEBOS_FILE_APPINFO = "appinfo.json";	
 	
@@ -54,10 +56,12 @@ public enum AppInfoEnum {
 	 * @param replaceVal
 	 * @param displayText
 	 */
-	AppInfoEnum (String key, String replaceVal, String displayText) {
+	AppInfoEnum (String key, String replaceVal, String displayText, String defaultValue, String toolTip) {
 		this.fieldName = key;
 		this.replaceVal = replaceVal;
 		this.displayText = displayText;
+		this.defaultValue = defaultValue;
+		this.toolTip = toolTip;
 	}
 	
 
@@ -81,6 +85,22 @@ public enum AppInfoEnum {
 	 */
 	public String getFieldName() {
 		return fieldName;
+	}
+
+
+	/**
+	 * @return the defaultValue
+	 */
+	public String getDefaultValue() {
+		return defaultValue;
+	}
+
+
+	/**
+	 * @return the toolTip
+	 */
+	public String getToolTip() {
+		return toolTip;
 	}
 	
 }
