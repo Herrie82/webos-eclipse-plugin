@@ -6,15 +6,6 @@ Changes in version 1.0.1 (?)
 -------------------------------------
 * CHANGE: refactor NewWebOSProjectWizardPage1, updated to groups/integrated validation
 * ADD: Dialogue to edit/enter in appinfo.json
-*  
-
-* 
-TODO:
-* validation/verify fields should be text
-
-* Does the eclipse plugin allow to set the javascript editor
-* Need to check to see if you can depend on WTP tools or make it optional for download...
-
 
 
 Changes in version 1.0.0 (03.11.2009)
