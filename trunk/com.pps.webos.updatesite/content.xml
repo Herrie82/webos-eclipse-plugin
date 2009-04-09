@@ -3,9 +3,9 @@
 <repository name='file:/Users/justinm/development/workspaces/webos/com.pps.webos.updatesite/ - metadata' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
   <properties size='2'>
     <property name='p2.compressed' value='false'/>
-    <property name='p2.timestamp' value='1236830284324'/>
+    <property name='p2.timestamp' value='1239244006920'/>
   </properties>
-  <units size='14'>
+  <units size='17'>
     <unit id='com.pps.webos.feature.feature.group' version='1.0.0.200903112115' singleton='false'>
       <update id='com.pps.webos.feature.feature.group' range='[0.0.0,1.0.0.200903112115)' severity='0'/>
       <properties size='5'>
@@ -523,10 +523,115 @@
       <touchpointData size='1'>
         <instructions size='1'>
           <instruction key='manifest'>
-            Bundle-ManifestVersion: 2&#xA;Export-Package: com.pps.webos&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.eclipse.ui.ide,org.eclipse.ui.workbench,org.eclipse.jface&#xA;Bundle-Activator: com.pps.webos.WebOSEclipsePlugin&#xA;Bundle-Name: WebOS Eclipse Plugin&#xA;Bundle-Version: 1.0.0.200903112258&#xA;Bundle-Vendor: www.palmpreschool.com&#xA;Bundle-SymbolicName: com.pps.webos.WebOSEclipsePlugin;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .&#xA;
+            Bundle-ManifestVersion: 2&#xA;Export-Package: com.pps.webos&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.eclipse.ui.ide,org.eclipse.ui.workbench,org.eclipse.jface&#xA;Bundle-Activator: com.pps.webos.WebOSEclipsePlugin&#xA;Bundle-Name: WebOS Eclipse Plugin&#xA;Bundle-Version: 1.0.0.200903112258&#xA;Bundle-Vendor: www.palmpreschool.com&#xA;Bundle-SymbolicName: com.pps.webos.WebOSEclipsePlugin;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .
           </instruction>
         </instructions>
       </touchpointData>
+    </unit>
+    <unit id='com.pps.webos.feature.feature.group' version='1.0.0.200904082126' singleton='false'>
+      <update id='com.pps.webos.feature.feature.group' range='[0.0.0,1.0.0.200904082126)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='WebOS Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='Plugin to assist with WebOS development in Eclipse'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://code.google.com/p/webos-eclipse-plugin/'/>
+        <property name='org.eclipse.equinox.p2.provider' value='www.palmpreschool.com'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+      </properties>
+      <provides size='1'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.pps.webos.feature.feature.group' version='1.0.0.200904082126'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.pps.webos.WebOSEclipsePlugin' range='[1.0.0.200904082126,1.0.0.200904082126]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.pps.webos.feature.feature.jar' range='[1.0.0.200904082126,1.0.0.200904082126]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license url='http://www.gnu.org/licenses/gpl.txt'>
+          see http://www.gnu.org/licenses/gpl.txt
+        </license>
+      </licenses>
+      <copyright>
+        Copyright Knests, LLC 2009
+      </copyright>
+    </unit>
+    <unit id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200904082126'>
+      <update id='com.pps.webos.WebOSEclipsePlugin' range='[0.0.0,1.0.0.200904082126)' severity='0'/>
+      <properties size='2'>
+        <property name='org.eclipse.equinox.p2.name' value='WebOS Eclipse Plugin'/>
+        <property name='org.eclipse.equinox.p2.provider' value='www.palmpreschool.com'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200904082126'/>
+        <provided namespace='osgi.bundle' name='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200904082126'/>
+        <provided namespace='java.package' name='com.pps.webos' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filebuffers' range='3.4.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='3.4.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='3.4.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding' range='1.1.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.databinding' range='1.2.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.databinding.beans' range='1.1.1'/>
+        <required namespace='osgi.bundle' name='org.apache.commons.logging' range='1.0.4'/>
+        <required namespace='osgi.bundle' name='org.apache.commons.lang' range='2.3.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='com.pps.webos.WebOSEclipsePlugin' version='1.0.0.200904082126'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: com.pps.webos&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.resources,org.eclipse.core.runtime,org.eclipse.ui.ide,org.eclipse.ui.workbench,org.eclipse.jface,org.eclipse.core.filebuffers;bundle-version=&quot;3.4.0&quot;,org.eclipse.jface.text;bundle-version=&quot;3.4.1&quot;,org.eclipse.jdt.ui;bundle-version=&quot;3.4.1&quot;,org.eclipse.core.databinding;bundle-version=&quot;1.1.1&quot;,org.eclipse.jface.databinding;bundle-version=&quot;1.2.1&quot;,org.eclipse.core.databinding.beans;bundle-version=&quot;1.1.1&quot;,org.apache.commons.logging;bundle-version=&quot;1.0.4&quot;,org.apache.commons.lang;bundle-version=&quot;2.3.0&quot;&#xA;Bundle-Activator: com.pps.webos.WebOSEclipsePlugin&#xA;Bundle-Name: WebOS Eclipse Plugin&#xA;Bundle-Version: 1.0.0.200904082126&#xA;Bundle-Vendor: www.palmpreschool.com&#xA;Bundle-SymbolicName: com.pps.webos.WebOSEclipsePlugin;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-ClassPath: .,lib/commons-beanutils-1.8.0.jar&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='com.pps.webos.feature.feature.jar' version='1.0.0.200904082126'>
+      <update id='com.pps.webos.feature.feature.jar' range='[0.0.0,1.0.0.200904082126)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='WebOS Feature'/>
+        <property name='org.eclipse.equinox.p2.description' value='Plugin to assist with WebOS development in Eclipse'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://code.google.com/p/webos-eclipse-plugin/'/>
+        <property name='org.eclipse.equinox.p2.provider' value='www.palmpreschool.com'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='com.pps.webos.feature.feature.jar' version='1.0.0.200904082126'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='com.pps.webos.feature' version='1.0.0.200904082126'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='com.pps.webos.feature' version='1.0.0.200904082126'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license url='http://www.gnu.org/licenses/gpl.txt'>
+          see http://www.gnu.org/licenses/gpl.txt
+        </license>
+      </licenses>
+      <copyright>
+        Copyright Knests, LLC 2009
+      </copyright>
     </unit>
   </units>
 </repository>
