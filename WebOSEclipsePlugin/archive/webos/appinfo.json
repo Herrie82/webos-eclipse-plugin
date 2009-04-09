@@ -1,11 +1,12 @@
 appinfo.json
 {
-   "title": "MyApp",
-   "type": "web",
-   "main": "index.html"
-   "icon": "icon.png",
-   "id": "com.yourdomain.app.myapp",
-   "version": "1.0",
-   "vendorid": "com.yourdomain.app.myapp",
-   "removable": true
+   "title": "_title",
+   "type": "_type",
+   "main": "_main"
+   "id": "_id",
+   "version": "_version",
+   "noWindow": "_noWindow",
+   "icon": "_icon",
+   "minicon" : "_minicon",
+   "category" : "_category"
 }
