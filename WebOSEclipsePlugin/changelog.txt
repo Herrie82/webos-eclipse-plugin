@@ -2,6 +2,12 @@ WEBOS ECLIPSE PLUGIN CHANGELOG
 =========================
 http://code.google.com/p/webos-eclipse-plugin/
 
+Changes in version 1.0.1 (?)
+-------------------------------------
+* CHANGE: refactor NewWebOSProjectWizardPage1, updated to groups/integrated validation
+* ADD: Dialogue to edit/enter in appinfo.json
+
+
 Changes in version 1.0.0 (03.11.2009)
 -------------------------------------
 General
